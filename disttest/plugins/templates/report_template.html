@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>{{ title }}</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+        .header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+        .summary {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 30px;
+        }
+        .summary-box {
+            text-align: center;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            flex: 1;
+            margin: 0 10px;
+        }
+        .pass {
+            background-color: #dff0d8;
+            border: 1px solid #d6e9c6;
+        }
+        .fail {
+            background-color: #f2dede;
+            border: 1px solid #ebccd1;
+        }
+        .total {
+            background-color: #d9edf7;
+            border: 1px solid #bce8f1;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 30px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        tr:hover {
+            background-color: #f9f9f9;
+        }
+        .node-results {
+            margin-bottom: 30px;
+        }
+        .failed-tests {
+            margin-bottom: 30px;
+        }
+        .error-message {
+            background-color: #f8f8f8;
+            padding: 10px;
+            border-radius: 5px;
+            font-family: monospace;
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>{{ title }}</h1>
+        <p>生成时间: {{ timestamp }}</p>
+        <p>总执行时间: {{ "%.2f"|format(duration) }} 秒</p>
+    </div>
+    
+    <div class="summary">
+        <div class="summary-box total">
+            <h2>总计</h2>
+            <h3>{{ summary.total }}</h3>
+        </div>
+        <div class="summary-box pass">
+            <h2>通过</h2>
+            <h3>{{ summary.passed }}</h3>
+        </div>
+        <div class="summary-box fail">
+            <h2>失败</h2>
+            <h3>{{ summary.failed }}</h3>
+        </div>
+        <div class="summary-box total">
+            <h2>通过率</h2>
+            <h3>{{ "%.2f"|format(summary.pass_rate) }}%</h3>
+        </div>
+    </div>
+    
+    <div class="node-results">
+        <h2>节点执行情况</h2>
+        <table>
+            <tr>
+                <th>节点ID</th>
+                <th>总计</th>
+                <th>通过</th>
+                <th>失败</th>
+                <th>通过率</th>
+            </tr>
+            {% for node_id, node_data in nodes.items() %}
+            <tr>
+                <td>{{ node_id }}</td>
+                <td>{{ node_data.total }}</td>
+                <td>{{ node_data.passed }}</td>
+                <td>{{ node_data.failed }}</td>
+                <td>{{ "%.2f"|format(node_data.pass_rate) }}%</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+    
+    {% if failed_tests %}
+    <div class="failed-tests">
+        <h2>失败的测试用例</h2>
+        <table>
+            <tr>
+                <th>测试名称</th>
+                <th>执行时间 (秒)</th>
+                <th>错误信息</th>
+            </tr>
+            {% for test in failed_tests %}
+            <tr>
+                <td>{{ test.test_name }}</td>
+                <td>{{ "%.3f"|format(test.execution_time) }}</td>
+                <td><div class="error-message">{{ test.error_message }}</div></td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+    {% else %}
+    <div class="passed-message">
+        <h2>恭喜！所有测试用例均通过。</h2>
+    </div>
+    {% endif %}
+</body>
+</html>

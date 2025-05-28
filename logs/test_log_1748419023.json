@@ -1,0 +1,43 @@
+{
+  "test_run": {
+    "start_time": "2025-05-28T15:57:03.085368",
+    "end_time": "2025-05-28T15:57:03.090160",
+    "summary": {
+      "test_case_name": "",
+      "node_id": "cherryzhoudeMacBook-Air.local-11865",
+      "total": 0,
+      "passed": 0,
+      "failed": 0,
+      "pass_rate": 0,
+      "total_time": 0,
+      "start_time": "2025-05-28T15:57:03.085038",
+      "end_time": "2025-05-28T15:57:03.087194"
+    },
+    "name": "默认测试套件",
+    "test_count": 13
+  },
+  "nodes": {
+    "node-1-475271f7": {
+      "start_time": "2025-05-28T15:57:03.086674",
+      "test_count": 13,
+      "status": "运行中",
+      "end_time": null,
+      "summary": null
+    },
+    "node-2-0e918a14": {
+      "start_time": "2025-05-28T15:57:03.086792",
+      "test_count": 13,
+      "status": "运行中",
+      "end_time": null,
+      "summary": null
+    },
+    "node-3-0b1b5da5": {
+      "start_time": "2025-05-28T15:57:03.086918",
+      "test_count": 13,
+      "status": "运行中",
+      "end_time": null,
+      "summary": null
+    }
+  },
+  "test_results": []
+}
