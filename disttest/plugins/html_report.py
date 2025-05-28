@@ -89,11 +89,25 @@ class HTMLReportPlugin(PluginBase):
     
     def _generate_report(self, report_data: Dict[str, Any]) -> None:
         """生成HTML报告"""
-        template_loader = jinja2.FileSystemLoader(searchpath=self.template_dir)
-        template_env = jinja2.Environment(loader=template_loader)
-        template = template_env.get_template(self.template_name)
+        template_path = os.path.join(self.template_dir, self.template_name)
         
-        output = template.render(**report_data)
+        # 如果模板文件不存在，创建默认模板
+        if not os.path.exists(template_path):
+            self._create_default_template()
+            
+        try:
+            # 尝试使用jinja2的文件加载器
+            template_loader = jinja2.FileSystemLoader(searchpath=self.template_dir)
+            template_env = jinja2.Environment(loader=template_loader)
+            template = template_env.get_template(self.template_name)
+            
+            output = template.render(**report_data)
+        except Exception as e:
+            # 如果加载模板失败，使用字符串模板
+            print(f"警告: 加载模板失败: {str(e)}，使用内置模板")
+            template_content = self._get_default_template_content()
+            template = jinja2.Template(template_content)
+            output = template.render(**report_data)
         
         report_path = os.path.join(self.output_dir, self.report_name)
         with open(report_path, "w", encoding="utf-8") as f:
@@ -103,7 +117,15 @@ class HTMLReportPlugin(PluginBase):
         """创建默认的HTML报告模板"""
         template_path = os.path.join(self.template_dir, self.template_name)
         
-        template_content = """<!DOCTYPE html>
+        # 确保模板目录存在
+        os.makedirs(os.path.dirname(template_path), exist_ok=True)
+        
+        with open(template_path, "w", encoding="utf-8") as f:
+            f.write(self._get_default_template_content())
+    
+    def _get_default_template_content(self) -> str:
+        """获取默认模板内容"""
+        return """<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
@@ -251,7 +273,4 @@ class HTMLReportPlugin(PluginBase):
     </div>
     {% endif %}
 </body>
-</html>"""
-        
-        with open(template_path, "w", encoding="utf-8") as f:
-            f.write(template_content) 
+</html>""" 

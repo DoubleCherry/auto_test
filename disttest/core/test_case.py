@@ -6,8 +6,9 @@ import inspect
 import time
 import traceback
 from typing import Any, Callable, Dict, List, Optional, Tuple, Type
+from datetime import datetime
 
-from .test_result import TestResult
+from .test_result import TestResult, TestMethodResult
 
 
 class TestCase:
@@ -26,10 +27,12 @@ class TestCase:
         """测试后置处理，在执行测试方法后调用"""
         self._teardown_called = True
     
+    @classmethod
     def setup_class(cls) -> None:
         """类级别的测试前置处理，在执行任何测试方法前调用一次"""
         pass
     
+    @classmethod
     def teardown_class(cls) -> None:
         """类级别的测试后置处理，在执行所有测试方法后调用一次"""
         pass
@@ -75,14 +78,39 @@ class TestCase:
         """运行单个测试方法"""
         method = getattr(self, method_name)
         start_time = time.time()
+        method_start_time = datetime.now()
+        
         try:
             self.setup()
             method()
             end_time = time.time()
+            execution_time = end_time - start_time
             self.teardown()
-            return True, None, end_time - start_time
+            
+            # 添加成功的测试结果
+            result = TestMethodResult(
+                method_name=method_name,
+                success=True,
+                execution_time=execution_time,
+                start_time=method_start_time
+            )
+            self.results.add_result(result)
+            
+            return True, None, execution_time
         except Exception as e:
             end_time = time.time()
+            execution_time = end_time - start_time
             error_traceback = traceback.format_exc()
             self.teardown()
-            return False, f"{type(e).__name__}: {str(e)}\n{error_traceback}", end_time - start_time 
+            
+            # 添加失败的测试结果
+            result = TestMethodResult(
+                method_name=method_name,
+                success=False,
+                error_message=f"{type(e).__name__}: {str(e)}\n{error_traceback}",
+                execution_time=execution_time,
+                start_time=method_start_time
+            )
+            self.results.add_result(result)
+            
+            return False, f"{type(e).__name__}: {str(e)}\n{error_traceback}", execution_time 

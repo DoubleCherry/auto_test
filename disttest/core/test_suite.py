@@ -6,7 +6,7 @@ import inspect
 from typing import Dict, List, Type, Optional, Any
 
 from .test_case import TestCase
-from .test_result import TestResult
+from .test_result import TestResult, TestMethodResult
 
 
 class TestSuite:
@@ -43,12 +43,20 @@ class TestSuite:
             test_instance = test_case_class()
             test_methods = test_case_class.get_test_methods()
             
+            # 创建这个测试用例的结果
+            test_case_result = TestResult()
+            test_case_result.test_case_name = test_case_class.__name__
+            test_case_result.node_id = node_id
+            
             for method_name in test_methods:
                 success, error, execution_time = test_instance.run_test_method(method_name)
-                result = test_instance.results
-                result.test_case_name = test_case_class.__name__
-                result.node_id = node_id
-                merged_result.merge(result)
+                
+                # 收集测试用例的结果
+                for method_result in test_instance.results.results:
+                    test_case_result.add_result(method_result)
+            
+            # 合并这个测试用例的结果到总结果中
+            merged_result.merge(test_case_result)
             
             # 调用类级别的teardown
             if hasattr(test_case_class, 'teardown_class'):

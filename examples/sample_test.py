@@ -19,6 +19,7 @@ from disttest.plugins import HTMLReportPlugin, ConsoleReporterPlugin, JSONLogger
 class MathTestCase(TestCase):
     """数学运算测试用例"""
     
+    @classmethod
     def setup_class(cls):
         """类级别的前置处理"""
         print("MathTestCase 前置处理")
@@ -54,6 +55,7 @@ class MathTestCase(TestCase):
         super().teardown()
         self.value = None
     
+    @classmethod
     def teardown_class(cls):
         """类级别的后置处理"""
         print("MathTestCase 后置处理")
