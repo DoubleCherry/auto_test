@@ -35,11 +35,13 @@ class ConsoleReporterPlugin(PluginBase):
     def on_test_run_start(self, test_suite: TestSuite) -> None:
         """测试开始时的处理"""
         self.start_time = time.time()
-        self.total_tests = test_suite.get_total_test_count()
+        self.total_tests = len(test_suite.test_cases)
+        self.total_methods = test_suite.get_total_method_count()
         
         print(f"\n{Fore.CYAN}==========================================")
         print(f"    开始执行测试: {test_suite.name}")
-        print(f"    测试用例数量: {self.total_tests}")
+        print(f"    测试用例类数量: {self.total_tests}")
+        print(f"    测试用例数量: {self.total_methods}")
         print(f"    开始时间: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
         print(f"=========================================={Style.RESET_ALL}\n")
     
@@ -52,8 +54,8 @@ class ConsoleReporterPlugin(PluginBase):
         self.completed_tests = summary["total"]
         
         # 计算进度百分比
-        if self.total_tests > 0:
-            progress = min(100, int((self.completed_tests / self.total_tests) * 100))
+        if self.total_methods > 0:
+            progress = min(100, int((self.completed_tests / self.total_methods) * 100))
         else:
             progress = 0
             
@@ -66,7 +68,7 @@ class ConsoleReporterPlugin(PluginBase):
         sys.stdout.write('\r')
         sys.stdout.write(
             f"{Fore.GREEN}执行进度: [{bar}] {progress}% "
-            f"({self.completed_tests}/{self.total_tests}) "
+            f"({self.completed_tests}/{self.total_methods}) "
             f"通过: {summary['passed']} 失败: {summary['failed']}{Style.RESET_ALL}"
         )
         sys.stdout.flush()
@@ -87,7 +89,7 @@ class ConsoleReporterPlugin(PluginBase):
         print(f"\n{Fore.CYAN}==========================================")
         print(f"    测试执行完成")
         print(f"    总执行时间: {execution_time:.2f} 秒")
-        print(f"    总测试数: {summary['total']}")
+        print(f"    总测试用例数: {summary['total']}")
         print(f"    通过: {Fore.GREEN}{summary['passed']}{Fore.CYAN}")
         print(f"    失败: {Fore.RED}{summary['failed']}{Fore.CYAN}")
         print(f"    通过率: {Fore.YELLOW}{summary['pass_rate'] * 100:.2f}%{Fore.CYAN}")
@@ -106,13 +108,17 @@ class ConsoleReporterPlugin(PluginBase):
     
     def on_node_start(self, node_id: str, node_suite: TestSuite) -> None:
         """节点开始执行时的处理"""
+        test_count = len(node_suite.test_cases)
+        method_count = node_suite.get_total_method_count()
+        
         self.active_nodes[node_id] = {
             "start_time": time.time(),
-            "test_count": node_suite.get_total_test_count()
+            "test_count": test_count,
+            "method_count": method_count
         }
         
         if self.verbose:
-            print(f"{Fore.CYAN}节点 {node_id} 开始执行 {node_suite.get_total_test_count()} 个测试...{Style.RESET_ALL}")
+            print(f"{Fore.CYAN}节点 {node_id} 开始执行 {test_count} 个测试用例类 ({method_count} 个测试用例)...{Style.RESET_ALL}")
     
     def on_node_complete(self, node_id: str, result: TestResult) -> None:
         """节点完成测试时的处理"""
@@ -126,7 +132,7 @@ class ConsoleReporterPlugin(PluginBase):
             if self.verbose:
                 print(f"\n{Fore.CYAN}节点 {node_id} 完成执行:")
                 print(f"  执行时间: {node_execution_time:.2f} 秒")
-                print(f"  测试数: {summary['total']}")
+                print(f"  测试用例数: {summary['total']}")
                 print(f"  通过: {Fore.GREEN}{summary['passed']}{Fore.CYAN}")
                 print(f"  失败: {Fore.RED}{summary['failed']}{Fore.CYAN}")
                 print(f"  通过率: {Fore.YELLOW}{summary['pass_rate'] * 100:.2f}%{Fore.CYAN}{Style.RESET_ALL}")

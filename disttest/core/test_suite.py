@@ -67,6 +67,10 @@ class TestSuite:
     
     def get_total_test_count(self) -> int:
         """获取测试套件中测试方法的总数"""
+        return len(self.test_cases)
+    
+    def get_total_method_count(self) -> int:
+        """获取测试套件中所有测试方法的总数"""
         total = 0
         for test_case_class in self.test_cases:
             total += len(test_case_class.get_test_methods())

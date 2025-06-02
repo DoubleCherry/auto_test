@@ -15,6 +15,39 @@ from disttest.core import TestCase
 from disttest.runner import TestRunner
 from disttest.plugins import HTMLReportPlugin, ConsoleReporterPlugin, JSONLoggerPlugin
 
+class ListTestCase(TestCase):
+    """列表测试用例"""
+    
+    @classmethod
+    def setup_class(cls):
+        """类级别的前置处理"""
+        print("ListTestCase 前置处理")
+    
+    def setup(self):
+        """方法级别的前置处理"""
+        super().setup()
+        self.test_list = [1, 2, 3, 4, 5]
+    
+    def test_len(self):
+        """测试列表长度"""
+        time.sleep(random.uniform(0.1, 0.5))
+        self.assert_equal(len(self.test_list), 5)
+    
+    def test_data(self):
+        """验证列表数据"""
+        time.sleep(random.uniform(0.1, 0.5))
+        self.assert_equal(self.test_list[0], 1)
+    
+    
+    def teardown(self):
+        """方法级别的后置处理"""
+        super().teardown()
+        self.test_list = None
+    
+    @classmethod
+    def teardown_class(cls):
+        """类级别的后置处理"""
+        print("ListTestCase 后置处理")
 
 class MathTestCase(TestCase):
     """数学运算测试用例"""
@@ -63,6 +96,11 @@ class MathTestCase(TestCase):
 
 class StringTestCase(TestCase):
     """字符串操作测试用例"""
+    
+    @classmethod
+    def setup_class(cls):
+        """类级别的前置处理"""
+        print("StringTestCase 前置处理")
     
     def setup(self):
         """方法级别的前置处理"""
@@ -113,6 +151,11 @@ class StringTestCase(TestCase):
         """故意失败的测试用例"""
         time.sleep(random.uniform(0.1, 0.5))
         self.assert_equal(self.test_string, "Wrong value")
+    
+    @classmethod
+    def teardown_class(cls):
+        """类级别的后置处理"""
+        print("StringTestCase 后置处理")
 
 
 def run_local_test():
@@ -122,6 +165,7 @@ def run_local_test():
     # 添加测试用例
     runner.add_test_case(MathTestCase)
     runner.add_test_case(StringTestCase)
+    runner.add_test_case(ListTestCase)
     
     # 添加控制台报告插件
     runner.add_plugin(ConsoleReporterPlugin(verbose=True))
@@ -138,9 +182,10 @@ def run_distributed_test(nodes=3):
     # 添加测试用例
     runner.add_test_case(MathTestCase)
     runner.add_test_case(StringTestCase)
+    runner.add_test_case(ListTestCase)
     
     # 添加控制台报告插件
-    runner.add_plugin(ConsoleReporterPlugin())
+    runner.add_plugin(ConsoleReporterPlugin(verbose=True))
     
     # 添加HTML报告插件
     runner.add_plugin(HTMLReportPlugin())

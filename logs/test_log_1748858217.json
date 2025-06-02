@@ -1,0 +1,497 @@
+{
+  "test_run": {
+    "start_time": "2025-06-02T17:56:57.038024",
+    "end_time": "2025-06-02T17:57:00.273426",
+    "summary": {
+      "test_case_name": "",
+      "node_id": "cherryzhoudeMacBook-Air.local-22097",
+      "total": 55,
+      "passed": 48,
+      "failed": 7,
+      "pass_rate": 0.8727272727272727,
+      "total_time": 20.68096613883972,
+      "start_time": "2025-06-02T17:56:57.037919",
+      "end_time": "2025-06-02T17:57:00.262796"
+    },
+    "name": "默认测试套件",
+    "test_count": 2
+  },
+  "nodes": {
+    "node-1-90c87614": {
+      "start_time": "2025-06-02T17:56:57.039671",
+      "test_count": 1,
+      "status": "已完成",
+      "end_time": "2025-06-02T17:56:58.506149",
+      "summary": {
+        "test_case_name": "默认测试套件-node-1-90c87614",
+        "node_id": "node-1-90c87614",
+        "total": 10,
+        "passed": 10,
+        "failed": 0,
+        "pass_rate": 1.0,
+        "total_time": 4.019094944000244,
+        "start_time": "2025-06-02T17:56:57.039830",
+        "end_time": "2025-06-02T17:56:58.506034"
+      }
+    },
+    "node-2-f574f768": {
+      "start_time": "2025-06-02T17:56:57.039742",
+      "test_count": 1,
+      "status": "已完成",
+      "end_time": "2025-06-02T17:57:00.260047",
+      "summary": {
+        "test_case_name": "默认测试套件-node-2-f574f768",
+        "node_id": "node-2-f574f768",
+        "total": 45,
+        "passed": 38,
+        "failed": 7,
+        "pass_rate": 0.8444444444444444,
+        "total_time": 16.661871194839478,
+        "start_time": "2025-06-02T17:56:57.039871",
+        "end_time": "2025-06-02T17:57:00.259924"
+      }
+    }
+  },
+  "test_results": [
+    {
+      "method_name": "test_addition",
+      "success": true,
+      "error_message": null,
+      "execution_time": 0.4744687080383301,
+      "start_time": "2025-06-02T17:56:57.039856",
+      "additional_data": {}
+    },
+    {
+      "method_name": "test_addition",
+      "success": true,
+      "error_message": null,
+      "execution_time": 0.4744687080383301,
+      "start_time": "2025-06-02T17:56:57.039856",
+      "additional_data": {}
+    },
+    {
+      "method_name": "test_division",
+      "success": true,
+      "error_message": null,
+      "execution_time": 0.3785998821258545,
+      "start_time": "2025-06-02T17:56:57.514383",
+      "additional_data": {}
+    },
+    {
+      "method_name": "test_addition",
+      "success": true,
+      "error_message": null,
+      "execution_time": 0.4744687080383301,
+      "start_time": "2025-06-02T17:56:57.039856",
+      "additional_data": {}
+    },
+    {
+      "method_name": "test_division",
+      "success": true,
+      "error_message": null,
+      "execution_time": 0.3785998821258545,
+      "start_time": "2025-06-02T17:56:57.514383",
+      "additional_data": {}
+    },
+    {
+      "method_name": "test_multiplication",
+      "success": true,
+      "error_message": null,
+      "execution_time": 0.3725597858428955,
+      "start_time": "2025-06-02T17:56:57.893018",
+      "additional_data": {}
+    },
+    {
+      "method_name": "test_addition",
+      "success": true,
+      "error_message": null,
+      "execution_time": 0.4744687080383301,
+      "start_time": "2025-06-02T17:56:57.039856",
+      "additional_data": {}
+    },
+    {
+      "method_name": "test_division",
+      "success": true,
+      "error_message": null,
+      "execution_time": 0.3785998821258545,
+      "start_time": "2025-06-02T17:56:57.514383",
+      "additional_data": {}
+    },
+    {
+      "method_name": "test_multiplication",
+      "success": true,
+      "error_message": null,
+      "execution_time": 0.3725597858428955,
+      "start_time": "2025-06-02T17:56:57.893018",
+      "additional_data": {}
+    },
+    {
+      "method_name": "test_subtraction",
+      "success": true,
+      "error_message": null,
+      "execution_time": 0.24030089378356934,
+      "start_time": "2025-06-02T17:56:58.265610",
+      "additional_data": {}
+    },
+    {
+      "method_name": "test_contains",
+      "success": true,
+      "error_message": null,
+      "execution_time": 0.39870119094848633,
+      "start_time": "2025-06-02T17:56:57.039890",
+      "additional_data": {}
+    },
+    {
+      "method_name": "test_contains",
+      "success": true,
+      "error_message": null,
+      "execution_time": 0.39870119094848633,
+      "start_time": "2025-06-02T17:56:57.039890",
+      "additional_data": {}
+    },
+    {
+      "method_name": "test_endswith",
+      "success": true,
+      "error_message": null,
+      "execution_time": 0.43306589126586914,
+      "start_time": "2025-06-02T17:56:57.438669",
+      "additional_data": {}
+    },
+    {
+      "method_name": "test_contains",
+      "success": true,
+      "error_message": null,
+      "execution_time": 0.39870119094848633,
+      "start_time": "2025-06-02T17:56:57.039890",
+      "additional_data": {}
+    },
+    {
+      "method_name": "test_endswith",
+      "success": true,
+      "error_message": null,
+      "execution_time": 0.43306589126586914,
+      "start_time": "2025-06-02T17:56:57.438669",
+      "additional_data": {}
+    },
+    {
+      "method_name": "test_failure_example",
+      "success": false,
+      "error_message": "AssertionError: 断言失败: Hello, World! != Wrong value\nTraceback (most recent call last):\n  File \"/Users/cherryzhou/code/auto_test/disttest/core/test_case.py\", line 85, in run_test_method\n    method()\n  File \"/Users/cherryzhou/code/auto_test/examples/sample_test.py\", line 115, in test_failure_example\n    self.assert_equal(self.test_string, \"Wrong value\")\n  File \"/Users/cherryzhou/code/auto_test/disttest/core/test_case.py\", line 44, in assert_equal\n    raise AssertionError(msg)\nAssertionError: 断言失败: Hello, World! != Wrong value\n",
+      "execution_time": 0.27771520614624023,
+      "start_time": "2025-06-02T17:56:57.871779",
+      "additional_data": {}
+    },
+    {
+      "method_name": "test_contains",
+      "success": true,
+      "error_message": null,
+      "execution_time": 0.39870119094848633,
+      "start_time": "2025-06-02T17:56:57.039890",
+      "additional_data": {}
+    },
+    {
+      "method_name": "test_endswith",
+      "success": true,
+      "error_message": null,
+      "execution_time": 0.43306589126586914,
+      "start_time": "2025-06-02T17:56:57.438669",
+      "additional_data": {}
+    },
+    {
+      "method_name": "test_failure_example",
+      "success": false,
+      "error_message": "AssertionError: 断言失败: Hello, World! != Wrong value\nTraceback (most recent call last):\n  File \"/Users/cherryzhou/code/auto_test/disttest/core/test_case.py\", line 85, in run_test_method\n    method()\n  File \"/Users/cherryzhou/code/auto_test/examples/sample_test.py\", line 115, in test_failure_example\n    self.assert_equal(self.test_string, \"Wrong value\")\n  File \"/Users/cherryzhou/code/auto_test/disttest/core/test_case.py\", line 44, in assert_equal\n    raise AssertionError(msg)\nAssertionError: 断言失败: Hello, World! != Wrong value\n",
+      "execution_time": 0.27771520614624023,
+      "start_time": "2025-06-02T17:56:57.871779",
+      "additional_data": {}
+    },
+    {
+      "method_name": "test_length",
+      "success": true,
+      "error_message": null,
+      "execution_time": 0.4342007637023926,
+      "start_time": "2025-06-02T17:56:58.152499",
+      "additional_data": {}
+    },
+    {
+      "method_name": "test_contains",
+      "success": true,
+      "error_message": null,
+      "execution_time": 0.39870119094848633,
+      "start_time": "2025-06-02T17:56:57.039890",
+      "additional_data": {}
+    },
+    {
+      "method_name": "test_endswith",
+      "success": true,
+      "error_message": null,
+      "execution_time": 0.43306589126586914,
+      "start_time": "2025-06-02T17:56:57.438669",
+      "additional_data": {}
+    },
+    {
+      "method_name": "test_failure_example",
+      "success": false,
+      "error_message": "AssertionError: 断言失败: Hello, World! != Wrong value\nTraceback (most recent call last):\n  File \"/Users/cherryzhou/code/auto_test/disttest/core/test_case.py\", line 85, in run_test_method\n    method()\n  File \"/Users/cherryzhou/code/auto_test/examples/sample_test.py\", line 115, in test_failure_example\n    self.assert_equal(self.test_string, \"Wrong value\")\n  File \"/Users/cherryzhou/code/auto_test/disttest/core/test_case.py\", line 44, in assert_equal\n    raise AssertionError(msg)\nAssertionError: 断言失败: Hello, World! != Wrong value\n",
+      "execution_time": 0.27771520614624023,
+      "start_time": "2025-06-02T17:56:57.871779",
+      "additional_data": {}
+    },
+    {
+      "method_name": "test_length",
+      "success": true,
+      "error_message": null,
+      "execution_time": 0.4342007637023926,
+      "start_time": "2025-06-02T17:56:58.152499",
+      "additional_data": {}
+    },
+    {
+      "method_name": "test_lowercase",
+      "success": true,
+      "error_message": null,
+      "execution_time": 0.47815418243408203,
+      "start_time": "2025-06-02T17:56:58.586753",
+      "additional_data": {}
+    },
+    {
+      "method_name": "test_contains",
+      "success": true,
+      "error_message": null,
+      "execution_time": 0.39870119094848633,
+      "start_time": "2025-06-02T17:56:57.039890",
+      "additional_data": {}
+    },
+    {
+      "method_name": "test_endswith",
+      "success": true,
+      "error_message": null,
+      "execution_time": 0.43306589126586914,
+      "start_time": "2025-06-02T17:56:57.438669",
+      "additional_data": {}
+    },
+    {
+      "method_name": "test_failure_example",
+      "success": false,
+      "error_message": "AssertionError: 断言失败: Hello, World! != Wrong value\nTraceback (most recent call last):\n  File \"/Users/cherryzhou/code/auto_test/disttest/core/test_case.py\", line 85, in run_test_method\n    method()\n  File \"/Users/cherryzhou/code/auto_test/examples/sample_test.py\", line 115, in test_failure_example\n    self.assert_equal(self.test_string, \"Wrong value\")\n  File \"/Users/cherryzhou/code/auto_test/disttest/core/test_case.py\", line 44, in assert_equal\n    raise AssertionError(msg)\nAssertionError: 断言失败: Hello, World! != Wrong value\n",
+      "execution_time": 0.27771520614624023,
+      "start_time": "2025-06-02T17:56:57.871779",
+      "additional_data": {}
+    },
+    {
+      "method_name": "test_length",
+      "success": true,
+      "error_message": null,
+      "execution_time": 0.4342007637023926,
+      "start_time": "2025-06-02T17:56:58.152499",
+      "additional_data": {}
+    },
+    {
+      "method_name": "test_lowercase",
+      "success": true,
+      "error_message": null,
+      "execution_time": 0.47815418243408203,
+      "start_time": "2025-06-02T17:56:58.586753",
+      "additional_data": {}
+    },
+    {
+      "method_name": "test_replace",
+      "success": true,
+      "error_message": null,
+      "execution_time": 0.20202183723449707,
+      "start_time": "2025-06-02T17:56:59.065211",
+      "additional_data": {}
+    },
+    {
+      "method_name": "test_contains",
+      "success": true,
+      "error_message": null,
+      "execution_time": 0.39870119094848633,
+      "start_time": "2025-06-02T17:56:57.039890",
+      "additional_data": {}
+    },
+    {
+      "method_name": "test_endswith",
+      "success": true,
+      "error_message": null,
+      "execution_time": 0.43306589126586914,
+      "start_time": "2025-06-02T17:56:57.438669",
+      "additional_data": {}
+    },
+    {
+      "method_name": "test_failure_example",
+      "success": false,
+      "error_message": "AssertionError: 断言失败: Hello, World! != Wrong value\nTraceback (most recent call last):\n  File \"/Users/cherryzhou/code/auto_test/disttest/core/test_case.py\", line 85, in run_test_method\n    method()\n  File \"/Users/cherryzhou/code/auto_test/examples/sample_test.py\", line 115, in test_failure_example\n    self.assert_equal(self.test_string, \"Wrong value\")\n  File \"/Users/cherryzhou/code/auto_test/disttest/core/test_case.py\", line 44, in assert_equal\n    raise AssertionError(msg)\nAssertionError: 断言失败: Hello, World! != Wrong value\n",
+      "execution_time": 0.27771520614624023,
+      "start_time": "2025-06-02T17:56:57.871779",
+      "additional_data": {}
+    },
+    {
+      "method_name": "test_length",
+      "success": true,
+      "error_message": null,
+      "execution_time": 0.4342007637023926,
+      "start_time": "2025-06-02T17:56:58.152499",
+      "additional_data": {}
+    },
+    {
+      "method_name": "test_lowercase",
+      "success": true,
+      "error_message": null,
+      "execution_time": 0.47815418243408203,
+      "start_time": "2025-06-02T17:56:58.586753",
+      "additional_data": {}
+    },
+    {
+      "method_name": "test_replace",
+      "success": true,
+      "error_message": null,
+      "execution_time": 0.20202183723449707,
+      "start_time": "2025-06-02T17:56:59.065211",
+      "additional_data": {}
+    },
+    {
+      "method_name": "test_split",
+      "success": true,
+      "error_message": null,
+      "execution_time": 0.23081111907958984,
+      "start_time": "2025-06-02T17:56:59.267279",
+      "additional_data": {}
+    },
+    {
+      "method_name": "test_contains",
+      "success": true,
+      "error_message": null,
+      "execution_time": 0.39870119094848633,
+      "start_time": "2025-06-02T17:56:57.039890",
+      "additional_data": {}
+    },
+    {
+      "method_name": "test_endswith",
+      "success": true,
+      "error_message": null,
+      "execution_time": 0.43306589126586914,
+      "start_time": "2025-06-02T17:56:57.438669",
+      "additional_data": {}
+    },
+    {
+      "method_name": "test_failure_example",
+      "success": false,
+      "error_message": "AssertionError: 断言失败: Hello, World! != Wrong value\nTraceback (most recent call last):\n  File \"/Users/cherryzhou/code/auto_test/disttest/core/test_case.py\", line 85, in run_test_method\n    method()\n  File \"/Users/cherryzhou/code/auto_test/examples/sample_test.py\", line 115, in test_failure_example\n    self.assert_equal(self.test_string, \"Wrong value\")\n  File \"/Users/cherryzhou/code/auto_test/disttest/core/test_case.py\", line 44, in assert_equal\n    raise AssertionError(msg)\nAssertionError: 断言失败: Hello, World! != Wrong value\n",
+      "execution_time": 0.27771520614624023,
+      "start_time": "2025-06-02T17:56:57.871779",
+      "additional_data": {}
+    },
+    {
+      "method_name": "test_length",
+      "success": true,
+      "error_message": null,
+      "execution_time": 0.4342007637023926,
+      "start_time": "2025-06-02T17:56:58.152499",
+      "additional_data": {}
+    },
+    {
+      "method_name": "test_lowercase",
+      "success": true,
+      "error_message": null,
+      "execution_time": 0.47815418243408203,
+      "start_time": "2025-06-02T17:56:58.586753",
+      "additional_data": {}
+    },
+    {
+      "method_name": "test_replace",
+      "success": true,
+      "error_message": null,
+      "execution_time": 0.20202183723449707,
+      "start_time": "2025-06-02T17:56:59.065211",
+      "additional_data": {}
+    },
+    {
+      "method_name": "test_split",
+      "success": true,
+      "error_message": null,
+      "execution_time": 0.23081111907958984,
+      "start_time": "2025-06-02T17:56:59.267279",
+      "additional_data": {}
+    },
+    {
+      "method_name": "test_startswith",
+      "success": true,
+      "error_message": null,
+      "execution_time": 0.40683579444885254,
+      "start_time": "2025-06-02T17:56:59.498125",
+      "additional_data": {}
+    },
+    {
+      "method_name": "test_contains",
+      "success": true,
+      "error_message": null,
+      "execution_time": 0.39870119094848633,
+      "start_time": "2025-06-02T17:56:57.039890",
+      "additional_data": {}
+    },
+    {
+      "method_name": "test_endswith",
+      "success": true,
+      "error_message": null,
+      "execution_time": 0.43306589126586914,
+      "start_time": "2025-06-02T17:56:57.438669",
+      "additional_data": {}
+    },
+    {
+      "method_name": "test_failure_example",
+      "success": false,
+      "error_message": "AssertionError: 断言失败: Hello, World! != Wrong value\nTraceback (most recent call last):\n  File \"/Users/cherryzhou/code/auto_test/disttest/core/test_case.py\", line 85, in run_test_method\n    method()\n  File \"/Users/cherryzhou/code/auto_test/examples/sample_test.py\", line 115, in test_failure_example\n    self.assert_equal(self.test_string, \"Wrong value\")\n  File \"/Users/cherryzhou/code/auto_test/disttest/core/test_case.py\", line 44, in assert_equal\n    raise AssertionError(msg)\nAssertionError: 断言失败: Hello, World! != Wrong value\n",
+      "execution_time": 0.27771520614624023,
+      "start_time": "2025-06-02T17:56:57.871779",
+      "additional_data": {}
+    },
+    {
+      "method_name": "test_length",
+      "success": true,
+      "error_message": null,
+      "execution_time": 0.4342007637023926,
+      "start_time": "2025-06-02T17:56:58.152499",
+      "additional_data": {}
+    },
+    {
+      "method_name": "test_lowercase",
+      "success": true,
+      "error_message": null,
+      "execution_time": 0.47815418243408203,
+      "start_time": "2025-06-02T17:56:58.586753",
+      "additional_data": {}
+    },
+    {
+      "method_name": "test_replace",
+      "success": true,
+      "error_message": null,
+      "execution_time": 0.20202183723449707,
+      "start_time": "2025-06-02T17:56:59.065211",
+      "additional_data": {}
+    },
+    {
+      "method_name": "test_split",
+      "success": true,
+      "error_message": null,
+      "execution_time": 0.23081111907958984,
+      "start_time": "2025-06-02T17:56:59.267279",
+      "additional_data": {}
+    },
+    {
+      "method_name": "test_startswith",
+      "success": true,
+      "error_message": null,
+      "execution_time": 0.40683579444885254,
+      "start_time": "2025-06-02T17:56:59.498125",
+      "additional_data": {}
+    },
+    {
+      "method_name": "test_uppercase",
+      "success": true,
+      "error_message": null,
+      "execution_time": 0.3548591136932373,
+      "start_time": "2025-06-02T17:56:59.905007",
+      "additional_data": {}
+    }
+  ]
+}

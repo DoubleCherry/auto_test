@@ -3,7 +3,7 @@ TestResult类 - 测试结果管理
 """
 from dataclasses import dataclass, field
 from datetime import datetime
-from typing import Dict, List, Optional, Any
+from typing import Dict, List, Optional, Any, Set
 
 
 @dataclass
@@ -15,6 +15,10 @@ class TestMethodResult:
     execution_time: float = 0.0
     start_time: datetime = field(default_factory=datetime.now)
     additional_data: Dict[str, Any] = field(default_factory=dict)
+    
+    def __hash__(self):
+        # 用于去重的哈希方法
+        return hash((self.method_name, self.start_time))
 
 
 class TestResult:
@@ -27,10 +31,14 @@ class TestResult:
         self.end_time: Optional[datetime] = None
         self.results: List[TestMethodResult] = []
         self.metadata: Dict[str, Any] = {}
+        self._method_names: Set[str] = set()  # 用于跟踪已添加的方法名称
     
     def add_result(self, method_result: TestMethodResult) -> None:
         """添加单个方法的测试结果"""
-        self.results.append(method_result)
+        # 避免重复添加相同的测试方法结果
+        if method_result.method_name not in self._method_names:
+            self.results.append(method_result)
+            self._method_names.add(method_result.method_name)
     
     def get_summary(self) -> Dict[str, Any]:
         """获取测试结果汇总信息"""
@@ -57,7 +65,9 @@ class TestResult:
         if not other_result.results:
             return
             
-        self.results.extend(other_result.results)
+        # 避免重复添加相同的测试方法结果
+        for result in other_result.results:
+            self.add_result(result)
         
         # 更新结束时间为最晚的结束时间
         if other_result.end_time:
